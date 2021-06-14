@@ -1,2 +1,5 @@
 # Scalable-ML-with-Spark
-Scalable Machine Learning using Spark MLlib on Standalone Cluster, AWS EMR with Docker &amp; Nvidia RAPIDS Accelerator
+_Scalable Machine Learning using Spark MLlib on Standalone Cluster, AWS EMR with Docker &amp; Nvidia RAPIDS Accelerator_
+
+How to use?
+
