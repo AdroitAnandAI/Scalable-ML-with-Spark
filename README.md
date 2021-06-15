@@ -2,7 +2,7 @@
 _Scalable Machine Learning using Spark MLlib on Standalone Cluster, AWS EMR with Docker &amp; Nvidia RAPIDS Accelerator_
 
 
-To understand the context and history of Spark, head over to my blog here:
+To understand the context and history of Spark, head over to my blog here:<br>
 https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
 
 
@@ -20,16 +20,17 @@ docker run -it -p 8888:8888 jupyter/pyspark-notebook
 - Either click the link with Auth-Token or go-to http://localhost:8888/ and copy paste the token
 - Now you can execute Spark code in Jupyter or Terminal. 
 - If you want to execute in docker, just run spark-submit pi-code.py
+<br>
 
 ## Spark: Cluster Setup on Cloud
 
 You can set up a cluster using AWS EMR. The steps are detailed in "Section C. Spark Cluster: AWS Elastic Map Reduce + Docker". 
 
-The steps are captured in the animation below as well.
+The steps are captured in the animation below as well.<br><br>
 
 ![](resources/aws_emr_create_cluster.gif)
 
-During cluster creation, enter below configuration under 'Software Settings'
+During cluster creation, enter below configuration under 'Software Settings'<br>
 
 ```
 [
@@ -83,7 +84,7 @@ During cluster creation, enter below configuration under 'Software Settings'
 ]
 ```
 
-To enable YARN to access images from ECR, we need to generate config.json and put in HDFS so that it can be used by jobs running on the cluster.
+To enable YARN to access images from ECR, we need to generate config.json and put in HDFS so that it can be used by jobs running on the cluster.<br>
 
 ```
 ssh -i permission.pem hadoop@ec2-1-23-45-678.compute-1.amazonaws.com
@@ -93,7 +94,7 @@ sudo cp /root/.docker/config.json ~/.docker/config.json
 sudo chmod 644 ~/.docker/config.json
 hadoop fs -put ~/.docker/config.json /user/hadoop/
 ```
-
+<br>
 ![](resources/hadoop_put.gif)
 
 - You can resolve the project dependancies by mounting a docker, built as per the packages needed by the project. 
@@ -107,7 +108,7 @@ docker pull 06021981/scalableml:s3spark
 ```
 
 - Then, upload the given notebooks to EMR Notebooks and attach to the spunned up cluster.
-- In Jupyter notebook, give below config as the first cell. Please modify the DOCKER IMAGE link from ECR to docker.io
+- In Jupyter notebook, give below config as the first cell. Please modify the DOCKER IMAGE link from ECR to docker.io<br>
 
 ```
 %%configure -f
@@ -128,7 +129,7 @@ docker pull 06021981/scalableml:s3spark
 
 ## To create custom Docker Image to resolve cluster dependancies
 
-- Create a directory and a requirements.txt file. The requirements.txt file should contain all the dependencies required by your Spark application.
+- Create a directory and a requirements.txt file. The requirements.txt file should contain all the dependencies required by your Spark application.<br>
 
 ```
 mkdir pyspark
@@ -142,7 +143,7 @@ statsmodels==0.12.2
 scikit-learn==0.23.2
 ```
 
-- Create a Dockerfile inside the directory with following contents. A specific numpy version is installed to confirm docker execution from EMR Notebook.
+- Create a Dockerfile inside the directory with following contents. A specific numpy version is installed to confirm docker execution from EMR Notebook.<br>
 
 ```
 FROM amazoncorretto:8
@@ -163,7 +164,7 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 ```
 
-- Build the docker image using the command below. Tag and upload the locally built image to ECR.
+- Build the docker image using the command below. Tag and upload the locally built image to ECR.<br>
 
 ```
 sudo docker build -t local/pyspark-example pyspark/
@@ -173,55 +174,55 @@ sudo aws ecr get-login --region us-east-1 --no-include-email | sudo docker login
 sudo docker push 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
 ```
 
-You can also upload to Docker Hub and give 'docker.io/account/docker-name:tag' instead of AWS ECR Image URI above.
+<br>You can also upload to Docker Hub and give 'docker.io/account/docker-name:tag' instead of AWS ECR Image URI above.<br>
 
 
 
 # Time Series Prediction using Random Forest  
 
 
-Let's solve an ML problem in Standalone, Spark Local & Cluster mode. 
+Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
 
-Problem Statement: The daily temperate, wind, rainfall and humidity of a location is noted from 1990~2020s. Given these features, build a time series model to predict the humidity in Y2021. To verify the model, use 2020Q4 humidity values to compare, using a metric.
+Problem Statement: The daily temperate, wind, rainfall and humidity of a location is noted from 1990~2020s. Given these features, build a time series model to predict the humidity in Y2021. To verify the model, use 2020Q4 humidity values to compare, using a metric.<br>
 
 
-Here is a glimpse of the input data:
+Here is a glimpse of the input data:<br>
 ![](resources/s4.png)
 
-Time series nature of the humidity values is clearly visible:
+Time series nature of the humidity values is clearly visible:<br>
 ![](resources/humidity_timeseries.png)
 
-The data transformed for Spark processing is as below:
+The data transformed for Spark processing is as below:<br>
 ![](resources/s10.png)
 
-The predicted and actual humidity values on Standalone implementation is as shown below:
+The predicted and actual humidity values on Standalone implementation is as shown below:<br>
 ![](resources/humidity1.png)
 
 
-The predicted and actual humidity values on Distributed implementation is as shown below:
-![](resources/humidity1.png)
+The predicted and actual humidity values on Distributed implementation is as shown below:<br>
+![](resources/humidity2.png)
 
 
-The timing comparison between Standalone, Distributed & Spark Rapids implementation of the above project is as depicted below:
+The timing comparison between Standalone, Distributed & Spark Rapids implementation of the above project is as depicted below:<br>
 ![](resources/sparkrapids_project.png)
 
 
-Take the code which generates 100M tuples of random string and count, to feed in to distributed count operation. The timing comparison of such a distributed count operations between Spark Local and Spark RAPIDS is depicted below:
+Take the code which generates 100M tuples of random string and count, to feed in to distributed count operation. The timing comparison of such a distributed count operations between Spark Local and Spark RAPIDS is depicted below:<br>
 ![](resources/spark_localvsRAPIDS.png)
 
 
-For more details of the project, read here:
+For more details of the project, read here:<br>
 https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
 
 
-If you have any query or suggestion, you can reach me here. https://www.linkedin.com/in/ananduthaman/
+If you have any query or suggestion, you can reach me here. https://www.linkedin.com/in/ananduthaman/<br><br>
 
 # References
-[1] www.appliedaicourse.com
-[2] Dean, Jeffrey, and Sanjay Ghemawat. "MapReduce: simplified data processing on large clusters." Communications of the ACM 51.1 (2008): 107–113.
-[3] PySpark Documentation: https://spark.apache.org/docs/latest/api/python/index.html
-[4] Spark MLLib: https://spark.apache.org/docs/1.2.1/mllib-guide.html
-[5] Spark SQL: https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#sql
-[6] AWS EMR: https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-docker.html
-[7] AWS EMR with Docker: https://aws.amazon.com/blogs/big-data/simplify-your-spark-dependency-management-with-docker-in-emr-6-0-0/
-[8] GPU Cluster (Spark-Rapids): https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-rapids.html
+[1] www.appliedaicourse.com <br>
+[2] Dean, Jeffrey, and Sanjay Ghemawat. "MapReduce: simplified data processing on large clusters." Communications of the ACM 51.1 (2008): 107–113.<br>
+[3] PySpark Documentation: https://spark.apache.org/docs/latest/api/python/index.html<br>
+[4] Spark MLLib: https://spark.apache.org/docs/1.2.1/mllib-guide.html<br>
+[5] Spark SQL: https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#sql<br>
+[6] AWS EMR: https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-docker.html<br>
+[7] AWS EMR with Docker: https://aws.amazon.com/blogs/big-data/<br>simplify-your-spark-dependency-management-with-docker-in-emr-6-0-0/<br>
+[8] GPU Cluster (Spark-Rapids): https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-rapids.html<br>
