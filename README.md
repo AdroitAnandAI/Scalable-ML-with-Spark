@@ -2,7 +2,7 @@
 _Scalable ML using Spark MLlib on Standalone Cluster, AWS EMR with Docker &amp; Nvidia RAPIDS Accelerator_
 
 
-To get more details about this project and about Spark in general, visit my blog here:<br>
+To get step-by-step instructions to run this project, **visit my blog here**<br>
 https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
 
 
@@ -10,10 +10,10 @@ https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
 
 These are the 4 significant code bases:
 
-1) Standalone: StandAlone Multi-Variate Time Series Prediction.ipynb
-2) Spark Local: Distributed Multi-Variate Time Series Prediction.ipynb
-3) Spark Cluster: Distributed Time Series Prediction on AWS EMR Spark Cluster.ipynb
-4) Spark RAPIDS: String Count Reduce in Spark RAPIDS.ipynb
+**1) Standalone:** StandAlone Multi-Variate Time Series Prediction.ipynb
+**2) Spark Local:** Distributed Multi-Variate Time Series Prediction.ipynb
+**3) Spark Cluster:** Distributed Time Series Prediction on AWS EMR Spark Cluster.ipynb
+**4) Spark RAPIDS:** String Count Reduce in Spark Rapids.ipynb
 
 
 # How to Use?
@@ -34,9 +34,9 @@ docker run -it -p 8888:8888 jupyter/pyspark-notebook
 
 ## Spark: Cluster Setup on Cloud
 
-You can set up a cluster using AWS EMR. The steps are detailed in "Section C. Spark Cluster: AWS Elastic Map Reduce + Docker". 
+You can set up a cluster using AWS EMR. The steps are detailed in **"Section C. Spark Cluster: AWS Elastic Map Reduce + Docker". **
 
-The steps are captured in the animation below as well.<br><br>
+The steps are captured in the below animation as well.<br><br>
 
 ![](resources/aws_emr_create_cluster.gif)
 
@@ -108,7 +108,7 @@ hadoop fs -put ~/.docker/config.json /user/hadoop/
 
 ![](resources/hadoop_put.gif)
 
-- You can resolve the project dependancies by mounting a docker, built as per the packages needed by the project. 
+- You can **resolve the project dependancies by mounting a docker**, built with the packages as needed by the project. 
 
 - Please remember to give the corresponding docker image as configuration under 'Software Settings', during cluster creation and EMR Notebook initialization: 'docker.io/06021981/scalableml:s3spark'
 
@@ -140,7 +140,7 @@ docker pull 06021981/scalableml:s3spark
 
 ## To create custom Docker Image to resolve cluster dependancies
 
-- Create a directory and a requirements.txt file. The requirements.txt file should contain all the dependencies required by your Spark application.<br>
+- Create a directory and a requirements.txt file. **The requirements.txt file should contain all the dependencies required by your Spark application.**<br>
 
 ```
 mkdir pyspark
@@ -175,7 +175,7 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 ```
 
-- Build the docker image using the command below. Tag and upload the locally built image to ECR.<br>
+- **Build the docker image using the command below.** Tag and upload the locally built image to ECR.<br>
 
 ```
 sudo docker build -t local/pyspark-example pyspark/
@@ -185,7 +185,7 @@ sudo aws ecr get-login --region us-east-1 --no-include-email | sudo docker login
 sudo docker push 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
 ```
 
-<br>You can also upload to Docker Hub and give 'docker.io/account/docker-name:tag' instead of AWS ECR Image URI above.<br>
+<br>You can also **upload to Docker Hub** and give 'docker.io/account/docker-name:tag' instead of AWS ECR Image URI above.<br>
 
 
 
@@ -194,31 +194,34 @@ sudo docker push 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-example
 
 Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
 
-Problem Statement: The daily temperate, wind, rainfall and humidity of a location is noted from 1990~2020s. Given these features, build a time series model to predict the humidity in Y2021. To verify the model, use 2020Q4 humidity values to compare, using a metric.<br>
+**Problem Statement:** The daily temperate, wind, rainfall and humidity of a location is noted from 1990~2020s. Given these features, build a time series model to predict the humidity in Y2021. To verify the model, use 2020Q4 humidity values to compare, using a metric.<br>
 
 
-Here is a glimpse of the input data:<br>
+Here is a glimpse of the input data:<br
+
+<img src="resources/s4.png" width="80" height="80"/>
+
 ![](resources/s4.png)
 
-Time series nature of the humidity values is clearly visible:<br>
+**Time series nature** of the humidity values is clearly visible:<br>
 ![](resources/humidity_timeseries.png)
 
-The data transformed for Spark processing is as below:<br>
+The **data transformed** for Spark processing is as below:<br>
 ![](resources/s10.png)
 
-The predicted and actual humidity values on Standalone implementation is as shown below:<br>
+The predicted and actual humidity values on **Standalone implementation** is as shown below:<br>
 ![](resources/humidity1.png)
 
 
-The predicted and actual humidity values on Distributed implementation is as shown below:<br>
+The predicted and actual humidity values on **Distributed implementation** is as shown below:<br>
 ![](resources/humidity2.png)
 
 
-The timing comparison between Standalone, Distributed & Spark Rapids implementation of the above project is as depicted below:<br>
+The **timing comparison between Standalone, Distributed & Spark Rapids** implementation of the above project is as depicted below:<br>
 ![](resources/sparkrapids_project.png)
 
 
-Take the code which generates 100M tuples of random string and count, to feed in to distributed count operation. The timing comparison of such a distributed count operations between Spark Local and Spark RAPIDS is depicted below:<br>
+Take the code which generates **100M tuples of random string and count**, to feed in to distributed count operation. The timing comparison of such a distributed count operations between Spark Local and Spark RAPIDS is depicted below:<br>
 ![](resources/spark_localvsRAPIDS.png)
 
 
@@ -226,7 +229,7 @@ For more details of the project, read here:<br>
 https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
 
 
-If you have any query or suggestion, you can reach me here. https://www.linkedin.com/in/ananduthaman/<br><br>
+If you have any query or suggestion, you can **reach me here.** https://www.linkedin.com/in/ananduthaman/<br><br>
 
 # References
 [1] www.appliedaicourse.com <br>
