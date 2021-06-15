@@ -197,9 +197,9 @@ Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
 **Problem Statement:** The daily temperate, wind, rainfall and humidity of a location is noted from 1990~2020s. Given these features, build a time series model to predict the humidity in Y2021. To verify the model, use 2020Q4 humidity values to compare, using a metric.<br>
 
 
-Here is a glimpse of the input data:<br
+Here is a glimpse of the input data:<br>
 
-<center><img src="resources/s4.png" width="60%"/></center>
+<center><img src="resources/s4.png" height="190"/></center>
 
 ![](resources/s4.png)
 
