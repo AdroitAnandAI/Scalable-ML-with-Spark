@@ -110,7 +110,7 @@ hadoop fs -put ~/.docker/config.json /user/hadoop/
 
 - You can **resolve the project dependancies by mounting a docker**, built with the packages as needed by the project. 
 
-- Please remember to give the corresponding docker image as configuration under 'Software Settings', during cluster creation and EMR Notebook initialization: ** 'docker.io/06021981/scalableml:s3spark' **
+- Please remember to give the corresponding docker image as configuration under 'Software Settings', during cluster creation and EMR Notebook initialization:  'docker.io/06021981/scalableml:s3spark' 
 
 - You can also get the docker image for this project using the command below, and upload to your AWS ECR. But dont forget to change the DOCKER_IMAGE config accordingly.
 
@@ -135,8 +135,6 @@ docker pull 06021981/scalableml:s3spark
  }
 }
 ```
-
-
 
 ## To create custom Docker Image to resolve cluster dependancies
 
@@ -188,9 +186,7 @@ sudo docker push 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-example
 <br>You can also **upload to Docker Hub** and give 'docker.io/account/docker-name:tag' instead of AWS ECR Image URI above.<br>
 
 
-
 # Time Series Prediction using Random Forest  
-
 
 Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
 
@@ -198,10 +194,7 @@ Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
 
 
 Here is a glimpse of the input data:<br>
-
 <img src="resources/s4.png" height="190" align="middle" />
-
-![](resources/s4.png)
 
 **Time series nature** of the humidity values is clearly visible:<br>
 ![](resources/humidity_timeseries.png)
