@@ -207,7 +207,8 @@ Here is a glimpse of the input data:<br>
 ![](resources/humidity_timeseries.png)
 
 The **data transformed** for Spark processing is as below:<br>
-![](resources/s10.png)
+<img src="resources/s10.png" width="600" align="middle" />
+
 
 The predicted and actual humidity values on **Standalone implementation** is as shown below:<br>
 ![](resources/humidity1.png)
