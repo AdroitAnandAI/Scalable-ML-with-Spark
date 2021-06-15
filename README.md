@@ -1,9 +1,19 @@
 # Scalable Machine Learning with Spark
-_Scalable Machine Learning using Spark MLlib on Standalone Cluster, AWS EMR with Docker &amp; Nvidia RAPIDS Accelerator_
+_Scalable ML using Spark MLlib on Standalone Cluster, AWS EMR with Docker &amp; Nvidia RAPIDS Accelerator_
 
 
-To understand the context and history of Spark, head over to my blog here:<br>
+To get more details about this project and about Spark in general, visit my blog here:<br>
 https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
+
+
+# Important Files
+
+These are the 4 significant code bases:
+
+1) Standalone: StandAlone Multi-Variate Time Series Prediction.ipynb
+2) Spark Local: Distributed Multi-Variate Time Series Prediction.ipynb
+3) Spark Cluster: Distributed Time Series Prediction on AWS EMR Spark Cluster.ipynb
+4) Spark RAPIDS: String Count Reduce in Spark RAPIDS.ipynb
 
 
 # How to Use?
