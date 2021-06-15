@@ -95,6 +95,7 @@ sudo chmod 644 ~/.docker/config.json
 hadoop fs -put ~/.docker/config.json /user/hadoop/
 ```
 <br>
+
 ![](resources/hadoop_put.gif)
 
 - You can resolve the project dependancies by mounting a docker, built as per the packages needed by the project. 
