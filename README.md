@@ -227,7 +227,7 @@ If you have any query or suggestion, you can **reach me here.** https://www.link
 
 # References
 [1] www.appliedaicourse.com <br>
-[2] Dean, Jeffrey, and Sanjay Ghemawat. "MapReduce: simplified data processing on large clusters." Communications of the ACM 51.1 (2008): 107–113.<br>
+[2] Dean, Jeffrey, and Sanjay Ghemawat. "MapReduce: simplified data processing on large clusters." Communications of the ACM51.1 (2008)<br>
 [3] PySpark Documentation: https://spark.apache.org/docs/latest/api/python/index.html<br>
 [4] Spark MLLib: https://spark.apache.org/docs/1.2.1/mllib-guide.html<br>
 [5] Spark SQL: https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#sql<br>
