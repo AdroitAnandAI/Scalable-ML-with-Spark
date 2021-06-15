@@ -199,7 +199,7 @@ Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
 
 Here is a glimpse of the input data:<br
 
-<img src="resources/s4.png" width="80" height="80"/>
+<center><img src="resources/s4.png" width="60%"/></center>
 
 ![](resources/s4.png)
 
