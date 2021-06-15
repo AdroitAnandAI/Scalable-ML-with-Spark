@@ -8,12 +8,12 @@ https://towardsdatascience.com/indian-accent-speech-recognition-2d433eb7edac
 
 # Important Files
 
-These are the 4 significant code bases:
+These are the 4 significant code bases:<br>
 
-**1) Standalone:** StandAlone Multi-Variate Time Series Prediction.ipynb
-**2) Spark Local:** Distributed Multi-Variate Time Series Prediction.ipynb
-**3) Spark Cluster:** Distributed Time Series Prediction on AWS EMR Spark Cluster.ipynb
-**4) Spark RAPIDS:** String Count Reduce in Spark Rapids.ipynb
+**1) Standalone:** StandAlone Multi-Variate Time Series Prediction.ipynb<br>
+**2) Spark Local:** Distributed Multi-Variate Time Series Prediction.ipynb<br>
+**3) Spark Cluster:** Distributed Time Series Prediction on AWS EMR Spark Cluster.ipynb<br>
+**4) Spark RAPIDS:** String Count Reduce in Spark Rapids.ipynb<br><br>
 
 
 # How to Use?
@@ -34,9 +34,9 @@ docker run -it -p 8888:8888 jupyter/pyspark-notebook
 
 ## Spark: Cluster Setup on Cloud
 
-You can set up a cluster using AWS EMR. The steps are detailed in **"Section C. Spark Cluster: AWS Elastic Map Reduce + Docker". **
+You can set up a cluster using AWS EMR. The steps are **detailed in "Section C. Spark Cluster: AWS Elastic Map Reduce + Docker".**
 
-The steps are captured in the below animation as well.<br><br>
+The steps are captured in the below animation as well.<br>
 
 ![](resources/aws_emr_create_cluster.gif)
 
@@ -94,7 +94,7 @@ During cluster creation, enter below configuration under 'Software Settings'<br>
 ]
 ```
 
-To enable YARN to access images from ECR, we need to generate config.json and put in HDFS so that it can be used by jobs running on the cluster.<br>
+**To enable YARN to access images from ECR**, we need to generate config.json and put in HDFS so that it can be used by jobs running on the cluster.<br>
 
 ```
 ssh -i permission.pem hadoop@ec2-1-23-45-678.compute-1.amazonaws.com
@@ -110,7 +110,7 @@ hadoop fs -put ~/.docker/config.json /user/hadoop/
 
 - You can **resolve the project dependancies by mounting a docker**, built with the packages as needed by the project. 
 
-- Please remember to give the corresponding docker image as configuration under 'Software Settings', during cluster creation and EMR Notebook initialization: 'docker.io/06021981/scalableml:s3spark'
+- Please remember to give the corresponding docker image as configuration under 'Software Settings', during cluster creation and EMR Notebook initialization: ** 'docker.io/06021981/scalableml:s3spark' **
 
 - You can also get the docker image for this project using the command below, and upload to your AWS ECR. But dont forget to change the DOCKER_IMAGE config accordingly.
 
