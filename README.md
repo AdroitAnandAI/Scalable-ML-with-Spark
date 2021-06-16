@@ -188,7 +188,7 @@ sudo docker push 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-example
 
 # Time Series Prediction using Random Forest  
 
-Let's solve an ML problem in Standalone, Spark Local & Cluster mode. <br>
+This project aims to solve an ML problem in Standalone, Spark Local & Spark Cluster mode. <br>
 
 **Problem Statement:** The daily temperate, wind, rainfall and humidity of a location is noted from 1990~2020s. Given these features, build a time series model to predict the humidity in Y2021. To verify the model, use 2020Q4 humidity values to compare, using a metric.<br>
 
@@ -202,20 +202,17 @@ Here is a glimpse of the input data:<br>
 The **data transformed** for Spark processing is as below:<br>
 <img src="resources/s10.png" width="600" align="middle" />
 
-
 The predicted and actual humidity values on **Standalone implementation** is as shown below:<br>
 ![](resources/humidity1.png)
 
-
 The predicted and actual humidity values on **Distributed implementation** is as shown below:<br>
 ![](resources/humidity2.png)
-
 
 The **timing comparison between Standalone, Distributed & Spark Rapids** implementation of the above project is as depicted below:<br>
 ![](resources/sparkrapids_project.png)
 
 
-Take the code which generates **100M tuples of random string and count**, to feed in to distributed count operation. The timing comparison of such a distributed count operations between Spark Local and Spark RAPIDS is depicted below:<br>
+Furthermore, we aim to generate **100M tuples of random string and count**, to feed in to distributed count operation. The timing comparison of such distributed count operations between Spark Local and Spark RAPIDS is depicted below:<br>
 ![](resources/spark_localvsRAPIDS.png)
 
 
